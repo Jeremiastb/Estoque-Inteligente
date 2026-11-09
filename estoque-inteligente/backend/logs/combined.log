@@ -1,0 +1,130 @@
+2026-11-09 07:26:50 [INFO]: 🔄 Conectando aos bancos de dados... 
+2026-11-09 07:27:41 [INFO]: 🔄 Conectando aos bancos de dados... 
+2026-11-09 07:28:19 [INFO]: 📊 Status das conexões: {"sqlserver":"erro: Failed to connect to DESKTOP-DV49EQB:1433 - Could not connect (sequence)","mysql":"ok","mongodb":"erro: CC380000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:openssl\\ssl\\record\\rec_layer_s3.c:918:SSL alert number 80\n"}
+2026-11-09 07:28:19 [INFO]: 🚀 Servidor rodando em http://localhost:3000 
+2026-11-09 07:28:19 [INFO]: 📚 Documentação da API: http://localhost:3000/api 
+2026-11-09 07:28:19 [INFO]: 🎨 Frontend: http://localhost:3000/ 
+2026-11-09 07:38:23 [INFO]: 🛑 [SIGINT] Encerrando servidor graciosamente... 
+2026-11-09 07:39:17 [INFO]: 🔄 Conectando aos bancos de dados... 
+2026-11-09 07:40:13 [INFO]: 📊 Status das conexões: {"sqlserver":"erro: Failed to connect to DESKTOP-DV49EQB:1433 - Could not connect (sequence)","mysql":"ok","mongodb":"erro: querySrv ETIMEOUT _mongodb._tcp.cluster0.an7dnw0.mongodb.net"}
+2026-11-09 07:40:13 [INFO]: 🚀 Servidor rodando em http://localhost:3000 
+2026-11-09 07:40:13 [INFO]: 📚 Documentação da API: http://localhost:3000/api 
+2026-11-09 07:40:13 [INFO]: 🎨 Frontend: http://localhost:3000/ 
+2026-11-09 07:59:29 [INFO]: 🔄 Conectando aos bancos de dados... 
+2026-11-09 07:59:38 [INFO]: 🔄 Conectando aos bancos de dados... 
+2026-11-09 07:59:50 [INFO]: 🔄 Conectando aos bancos de dados... 
+2026-11-09 08:00:06 [INFO]: 🔄 Conectando aos bancos de dados... 
+2026-11-09 08:00:24 [INFO]: 🔄 Conectando aos bancos de dados...
+2026-11-09 08:00:36 [INFO]: 🔄 Conectando aos bancos de dados...
+2026-11-09 08:00:48 [INFO]: 🔄 Conectando aos bancos de dados...
+2026-11-09 08:01:03 [INFO]: 🔄 Conectando aos bancos de dados...
+2026-11-09 08:01:47 [INFO]: 🔄 Conectando aos bancos de dados...
+2026-11-09 08:02:26 [INFO]: 📊 Status das conexões:
+2026-11-09 08:02:26 [INFO]: 🚀 Servidor rodando em http://localhost:3000
+2026-11-09 08:11:32 [INFO]: 🔄 Conectando aos bancos de dados...
+2026-11-09 08:12:11 [INFO]: 📊 Status das conexões:
+2026-11-09 08:12:11 [INFO]: 🚀 Servidor rodando em http://localhost:3000
+2026-11-09 08:16:13 [INFO]: 🔄 Conectando aos bancos de dados...
+2026-11-09 08:16:53 [INFO]: 📊 Status das conexões:
+2026-11-09 08:16:53 [INFO]: 🚀 Servidor rodando em http://localhost:3000
+2026-11-09 08:22:28 [INFO]: GET / → 200 (23ms)
+2026-11-09 08:22:28 [INFO]: GET /css/style.css → 200 (6ms)
+2026-11-09 08:22:28 [INFO]: GET /js/app.js → 200 (8ms)
+2026-11-09 08:22:28 [INFO]: GET /api/produtos?db=mongodb → 500 (14ms)
+2026-11-09 08:22:28 [INFO]: GET /favicon.ico → 404 (3ms)
+2026-11-09 08:22:37 [INFO]: GET /api/health → 503 (9143ms)
+2026-11-09 10:16:38 [INFO]: 🔄 Conectando aos bancos de dados...
+2026-11-09 10:17:11 [INFO]: 📊 Status das conexões:
+2026-11-09 10:17:11 [INFO]: 🚀 Servidor rodando em http://localhost:3000
+2026-11-09 10:18:11 [INFO]: GET / → 200 (10ms)
+2026-11-09 10:18:11 [INFO]: GET /css/style.css → 200 (3ms)
+2026-11-09 10:18:11 [INFO]: GET /js/app.js → 200 (5ms)
+2026-11-09 10:18:11 [INFO]: GET /api/produtos?db=mongodb → 500 (8ms)
+2026-11-09 10:18:11 [INFO]: GET /favicon.ico → 404 (2ms)
+2026-11-09 10:18:14 [INFO]: GET /api/health → 503 (2700ms)
+2026-11-09 10:18:39 [INFO]: POST /api/produtos?db=mongodb → 400 (1ms)
+2026-11-09 10:18:39 [INFO]: GET /api/produtos?db=mongodb → 500 (2ms)
+2026-11-09 10:18:48 [INFO]: GET /api/produtos?db=mysql → 200 (45ms)
+2026-11-09 10:19:04 [INFO]: POST /api/produtos?db=mysql → 201 (7ms)
+2026-11-09 10:19:04 [INFO]: GET /api/produtos?db=mysql → 200 (3ms)
+2026-11-09 10:31:41 [INFO]: POST /api/produtos?db=mysql → 201 (4ms)
+2026-11-09 10:31:41 [INFO]: GET /api/produtos?db=mysql → 200 (3ms)
+2026-11-09 10:32:15 [INFO]: POST /api/produtos?db=mysql → 201 (3ms)
+2026-11-09 10:32:15 [INFO]: GET /api/produtos?db=mysql → 200 (1ms)
+2026-11-09 10:33:01 [INFO]: POST /api/produtos?db=mysql → 201 (3ms)
+2026-11-09 10:33:01 [INFO]: GET /api/produtos?db=mysql → 200 (3ms)
+2026-11-09 10:34:01 [INFO]: POST /api/produtos?db=mysql → 201 (4ms)
+2026-11-09 10:34:01 [INFO]: GET /api/produtos?db=mysql → 200 (2ms)
+2026-11-09 10:35:00 [INFO]: POST /api/produtos?db=mysql → 201 (4ms)
+2026-11-09 10:35:00 [INFO]: GET /api/produtos?db=mysql → 200 (2ms)
+2026-11-09 10:35:22 [INFO]: DELETE /api/produtos/6?db=mysql → 200 (12ms)
+2026-11-09 10:35:22 [INFO]: GET /api/produtos?db=mysql → 200 (2ms)
+2026-11-09 10:38:35 [INFO]: GET /api/produtos?db=mongodb → 500 (1ms)
+2026-11-09 10:38:35 [INFO]: GET /api/produtos?db=sqlserver → 500 (2717ms)
+2026-11-09 10:38:37 [INFO]: GET /api/produtos?db=mysql → 304 (3ms)
+2026-11-09 10:40:30 [INFO]: GET / → 304 (2ms)
+2026-11-09 10:40:30 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:40:30 [INFO]: GET /js/app.js → 304 (2ms)
+2026-11-09 10:40:30 [INFO]: GET /api/produtos?db=mongodb → 500 (3ms)
+2026-11-09 10:40:31 [INFO]: GET / → 304 (1ms)
+2026-11-09 10:40:31 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:40:31 [INFO]: GET /js/app.js → 304 (1ms)
+2026-11-09 10:40:31 [INFO]: GET /api/produtos?db=mongodb → 500 (2ms)
+2026-11-09 10:40:31 [INFO]: GET / → 304 (1ms)
+2026-11-09 10:40:31 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:40:31 [INFO]: GET /js/app.js → 304 (1ms)
+2026-11-09 10:40:31 [INFO]: GET /api/produtos?db=mongodb → 500 (2ms)
+2026-11-09 10:40:32 [INFO]: GET / → 304 (1ms)
+2026-11-09 10:40:32 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:40:32 [INFO]: GET /js/app.js → 304 (2ms)
+2026-11-09 10:40:32 [INFO]: GET /api/produtos?db=mongodb → 500 (2ms)
+2026-11-09 10:40:33 [INFO]: GET / → 304 (1ms)
+2026-11-09 10:40:33 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:40:33 [INFO]: GET /js/app.js → 304 (1ms)
+2026-11-09 10:40:33 [INFO]: GET /api/produtos?db=mongodb → 500 (2ms)
+2026-11-09 10:40:38 [INFO]: GET /api/health → 503 (5303ms)
+2026-11-09 10:42:07 [INFO]: GET / → 304 (1ms)
+2026-11-09 10:42:07 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:42:07 [INFO]: GET /js/app.js → 304 (2ms)
+2026-11-09 10:42:07 [INFO]: GET /api/produtos?db=mongodb → 500 (4ms)
+2026-11-09 10:42:09 [INFO]: GET / → 304 (0ms)
+2026-11-09 10:42:09 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:42:09 [INFO]: GET /js/app.js → 304 (1ms)
+2026-11-09 10:42:09 [INFO]: GET /api/produtos?db=mongodb → 500 (2ms)
+2026-11-09 10:42:12 [INFO]: GET /api/health → 503 (2675ms)
+2026-11-09 10:42:49 [INFO]: GET / → 304 (1ms)
+2026-11-09 10:42:49 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:42:49 [INFO]: GET /js/app.js → 304 (2ms)
+2026-11-09 10:42:49 [INFO]: GET /api/produtos?db=mongodb → 500 (1ms)
+2026-11-09 10:42:50 [INFO]: GET / → 304 (1ms)
+2026-11-09 10:42:50 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:42:50 [INFO]: GET /js/app.js → 304 (1ms)
+2026-11-09 10:42:50 [INFO]: GET /api/produtos?db=mongodb → 500 (2ms)
+2026-11-09 10:42:51 [INFO]: GET / → 304 (0ms)
+2026-11-09 10:42:51 [INFO]: GET /css/style.css → 304 (1ms)
+2026-11-09 10:42:51 [INFO]: GET /js/app.js → 304 (2ms)
+2026-11-09 10:42:51 [INFO]: GET /api/produtos?db=mongodb → 500 (1ms)
+2026-11-09 10:42:54 [INFO]: GET /api/health → 503 (3411ms)
+2026-11-09 10:43:11 [INFO]: GET / → 200 (2ms)
+2026-11-09 10:43:11 [INFO]: GET /css/style.css → 200 (2ms)
+2026-11-09 10:43:11 [INFO]: GET /js/app.js → 200 (4ms)
+2026-11-09 10:43:12 [INFO]: GET /api/produtos?db=mongodb → 500 (3ms)
+2026-11-09 10:43:14 [INFO]: GET /api/health → 503 (2701ms)
+2026-11-09 10:44:52 [INFO]: GET /api/produtos?db=mongodb → 500 (1ms)
+2026-11-09 10:45:33 [INFO]: POST /api/produtos?db=mongodb → 400 (0ms)
+2026-11-09 10:45:40 [INFO]: POST /api/produtos?db=mongodb → 400 (1ms)
+2026-11-09 10:55:01 [INFO]: POST /api/produtos?db=mongodb → 400 (1ms)
+2026-11-09 11:08:35 [INFO]: 🔄 Conectando aos bancos de dados...
+2026-11-09 11:08:35 [INFO]: 📊 Status das conexões:
+2026-11-09 11:08:35 [INFO]: 🚀 Servidor rodando em http://localhost:3000
+2026-11-09 11:08:59 [INFO]: GET / → 200 (9ms)
+2026-11-09 11:08:59 [INFO]: GET /css/style.css → 200 (4ms)
+2026-11-09 11:08:59 [INFO]: GET /js/app.js → 200 (2ms)
+2026-11-09 11:08:59 [INFO]: GET /api/health → 503 (11ms)
+2026-11-09 11:08:59 [INFO]: GET /api/produtos?db=mongodb → 200 (17ms)
+2026-11-09 11:08:59 [INFO]: GET /api/estoque/alertas?resolvidos=false&db=mongodb → 500 (3ms)
+2026-11-09 11:09:02 [INFO]: GET /api/produtos?db=mongodb → 304 (9ms)
+2026-11-09 11:09:42 [INFO]: POST /api/produtos?db=mongodb → 201 (31ms)
+2026-11-09 11:09:42 [INFO]: GET /api/produtos?db=mongodb → 200 (10ms)
+2026-11-09 11:10:03 [INFO]: DELETE /api/produtos/6af1d4262a298c472ca54b14?db=mongodb → 200 (14ms)
+2026-11-09 11:10:03 [INFO]: GET /api/produtos?db=mongodb → 200 (9ms)

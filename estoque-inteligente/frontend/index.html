@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Inteligente de Gestão de Estoque</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <span class="logo-icon">📦</span>
+          <span class="logo-text">Estoque<span class="logo-accent">Pro</span></span>
+        </div>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <button data-tab="dashboard" class="nav-item active">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">Dashboard</span>
+        </button>
+        <button data-tab="produtos" class="nav-item">
+          <span class="nav-icon">🛍️</span>
+          <span class="nav-text">Produtos</span>
+        </button>
+        <button data-tab="movimentacoes" class="nav-item" onclick="window.location.href='movimentacoes.html'">
+          <span class="nav-icon">🔄</span>
+          <span class="nav-text">Movimentações</span>
+        </button>
+        <button data-tab="kv" class="nav-item">
+          <span class="nav-icon">🔑</span>
+          <span class="nav-text">Key-Value <small>(A12)</small></span>
+        </button>
+        <button data-tab="graph" class="nav-item">
+          <span class="nav-icon">🕸️</span>
+          <span class="nav-text">Grafo <small>(A11)</small></span>
+        </button>
+        <button data-tab="content" class="nav-item">
+          <span class="nav-icon">📄</span>
+          <span class="nav-text">Conteúdo <small>(A13)</small></span>
+        </button>
+        <button data-tab="backup" class="nav-item">
+          <span class="nav-icon">💾</span>
+          <span class="nav-text">Backup <small>(A14)</small></span>
+        </button>
+        <button data-tab="migracao" class="nav-item">
+          <span class="nav-icon">🔀</span>
+          <span class="nav-text">Migração <small>(A16)</small></span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="db-selector">
+          <label class="db-label">Banco Ativo</label>
+          <select id="dbSelect" class="db-select">
+            <option value="mongodb">🟢 MongoDB</option>
+            <option value="mysql">🔵 MySQL</option>
+            <option value="sqlserver">🟡 SQL Server</option>
+          </select>
+        </div>
+        <div id="healthStatus" class="health-badge">
+          <span class="health-dot"></span>
+          <span class="health-text">Verificando...</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <h1 class="page-title" id="pageTitle">Dashboard</h1>
+          <p class="page-subtitle" id="pageSubtitle">Visão geral do sistema</p>
+        </div>
+        <div class="header-right">
+          <div class="datetime" id="datetime"></div>
+          <button class="btn-icon" title="Atualizar" onclick="location.reload()">🔄</button>
+        </div>
+      </header>
+
+      <!-- DASHBOARD -->
+      <section id="tab-dashboard" class="tab-content active">
+        <div class="stats-grid">
+          <div class="stat-card stat-primary">
+            <div class="stat-icon">📦</div>
+            <div class="stat-info">
+              <span class="stat-label">Total de Produtos</span>
+              <span class="stat-value" id="statTotalProdutos">0</span>
+            </div>
+          </div>
+          <div class="stat-card stat-success">
+            <div class="stat-icon">💰</div>
+            <div class="stat-info">
+              <span class="stat-label">Valor em Estoque</span>
+              <span class="stat-value" id="statValorEstoque">R$ 0</span>
+            </div>
+          </div>
+          <div class="stat-card stat-warning">
+            <div class="stat-icon">⚠️</div>
+            <div class="stat-info">
+              <span class="stat-label">Estoque Baixo</span>
+              <span class="stat-value" id="statEstoqueBaixo">0</span>
+            </div>
+          </div>
+          <div class="stat-card stat-danger">
+            <div class="stat-icon">🚨</div>
+            <div class="stat-info">
+              <span class="stat-label">Estoque Zerado</span>
+              <span class="stat-value" id="statEstoqueZerado">0</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="card">
+            <div class="card-header">
+              <h3>📊 Produtos por Categoria</h3>
+            </div>
+            <div class="card-body" id="categoriasChart">
+              <p class="empty-state">Carregando dados...</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h3>⚡ Ações Rápidas</h3>
+            </div>
+            <div class="card-body">
+              <div class="quick-actions">
+                <button class="action-btn" onclick="switchTab('produtos')">
+                  <span class="action-icon">➕</span>
+                  <span>Novo Produto</span>
+                </button>
+                <button class="action-btn" onclick="window.location.href='movimentacoes.html'">
+                  <span class="action-icon">📥</span>
+                  <span>Registrar Entrada</span>
+                </button>
+                <button class="action-btn" onclick="switchTab('backup')">
+                  <span class="action-icon">💾</span>
+                  <span>Fazer Backup</span>
+                </button>
+                <button class="action-btn" onclick="switchTab('migracao')">
+                  <span class="action-icon">🔀</span>
+                  <span>Migrar Dados</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>🔔 Alertas Recentes</h3>
+          </div>
+          <div class="card-body" id="alertasDashboard">
+            <p class="empty-state">Nenhum alerta no momento</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUTOS -->
+      <section id="tab-produtos" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h3>➕ Cadastrar Novo Produto</h3>
+            <button class="btn-toggle" onclick="toggleForm('formProduto')">
+              <span id="formToggleText">Expandir</span>
+            </button>
+          </div>
+          <div class="card-body">
+            <form id="formProduto" class="form-grid">
+              <div class="form-group">
+                <label>Código *</label>
+                <input name="codigo" placeholder="Ex: ELE-001" required>
+              </div>
+              <div class="form-group">
+                <label>Nome *</label>
+                <input name="nome" placeholder="Nome do produto" required>
+              </div>
+              <div class="form-group">
+                <label>Categoria</label>
+                <input name="categoria" placeholder="Ex: Eletrônicos">
+              </div>
+              <div class="form-group">
+                <label>Preço (R$) *</label>
+                <input name="preco" type="number" step="0.01" placeholder="0,00" required>
+              </div>
+              <div class="form-group">
+                <label>Quantidade *</label>
+                <input name="quantidade" type="number" placeholder="0" required>
+              </div>
+              <div class="form-group">
+                <label>Fornecedor</label>
+                <input name="fornecedor" placeholder="Nome do fornecedor">
+              </div>
+              <div class="form-group form-actions">
+                <button type="submit" class="btn btn-primary">💾 Salvar Produto</button>
+                <button type="reset" class="btn btn-secondary">🗑️ Limpar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3>📋 Lista de Produtos</h3>
+            <div class="search-box">
+              <input type="text" id="searchProdutos" placeholder="🔍 Buscar produto..." onkeyup="filtrarProdutos()">
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table id="tabelaProdutos">
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Categoria</th>
+                    <th>Preço</th>
+                    <th>Qtd</th>
+                    <th>Status</th>
+                    <th>Fornecedor</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KEY-VALUE -->
+      <section id="tab-kv" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h3>🔑 Key-Value Store <small>(Aula 12)</small></h3>
+          </div>
+          <div class="card-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Chave</label>
+                <input id="kvChave" placeholder="Ex: sessao_usuario_123">
+              </div>
+              <div class="form-group">
+                <label>Valor</label>
+                <input id="kvValor" placeholder="Qualquer valor...">
+              </div>
+              <div class="form-group form-actions">
+                <button onclick="kvSet()" class="btn btn-primary">💾 Salvar</button>
+                <button onclick="kvGet()" class="btn btn-secondary">🔍 Buscar</button>
+              </div>
+            </div>
+            <div class="result-box">
+              <h4>Resultado:</h4>
+              <pre id="kvResult">Aguardando operação...</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GRAFO -->
+      <section id="tab-graph" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h3>🕸️ Grafo de Relacionamentos <small>(Aula 11)</small></h3>
+          </div>
+          <div class="card-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Vértice Origem</label>
+                <input id="gOrigem" placeholder="Ex: Fornecedor_A">
+              </div>
+              <div class="form-group">
+                <label>Vértice Destino</label>
+                <input id="gDestino" placeholder="Ex: Produto_X">
+              </div>
+              <div class="form-group">
+                <label>Rótulo da Aresta</label>
+                <input id="gRotulo" placeholder="Ex: fornece">
+              </div>
+              <div class="form-group form-actions">
+                <button onclick="addEdge()" class="btn btn-primary">🔗 Criar Aresta</button>
+                <button onclick="neighbors()" class="btn btn-secondary">👥 Vizinhos</button>
+                <button onclick="path()" class="btn btn-warning">🛤️ Caminho</button>
+              </div>
+            </div>
+            <div class="result-box">
+              <h4>Resultado:</h4>
+              <pre id="gResult">Aguardando operação...</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTEÚDO -->
+      <section id="tab-content" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h3>📄 Content Store <small>(Aula 13)</small></h3>
+          </div>
+          <div class="card-body">
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Título</label>
+                <input id="cTitulo" placeholder="Título do conteúdo">
+              </div>
+              <div class="form-group">
+                <label>Tags (separadas por vírgula)</label>
+                <input id="cTags" placeholder="Ex: tech, nodejs, banco">
+              </div>
+              <div class="form-group full-width">
+                <label>Conteúdo</label>
+                <textarea id="cCorpo" placeholder="Escreva o conteúdo aqui..."></textarea>
+              </div>
+              <div class="form-group form-actions">
+                <button onclick="contentSave()" class="btn btn-primary">💾 Salvar</button>
+              </div>
+            </div>
+            <div class="search-box mt-3">
+              <input id="cBusca" placeholder="🔍 Buscar por tag..." onkeyup="if(event.key==='Enter') contentSearch()">
+              <button onclick="contentSearch()" class="btn btn-secondary">Buscar</button>
+            </div>
+            <div class="result-box">
+              <h4>Resultado:</h4>
+              <pre id="cResult">Aguardando operação...</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BACKUP -->
+      <section id="tab-backup" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h3>💾 Backup & Restore <small>(Aula 14)</small></h3>
+          </div>
+          <div class="card-body">
+            <div class="backup-grid">
+              <div class="backup-card">
+                <div class="backup-icon">🟢</div>
+                <h4>Backup MongoDB</h4>
+                <p>Gera dump lógico de todas as coleções</p>
+                <button onclick="backupMongo()" class="btn btn-primary">📥 Executar Backup</button>
+              </div>
+              <div class="backup-card">
+                <div class="backup-icon">🟡</div>
+                <h4>Backup SQL Server</h4>
+                <p>Backup nativo do banco de dados</p>
+                <button onclick="backupSS()" class="btn btn-warning">📥 Executar Backup</button>
+              </div>
+              <div class="backup-card">
+                <div class="backup-icon">📸</div>
+                <h4>Snapshot de Views</h4>
+                <p>Captura definição das views</p>
+                <button onclick="backupViews()" class="btn btn-secondary">📸 Capturar</button>
+              </div>
+            </div>
+            <div class="result-box mt-3">
+              <h4>Resultado:</h4>
+              <pre id="bkResult">Aguardando operação...</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MIGRAÇÃO -->
+      <section id="tab-migracao" class="tab-content">
+        <div class="card">
+          <div class="card-header">
+            <h3>🔀 Migração de Dados <small>(Aula 16)</small></h3>
+          </div>
+          <div class="card-body">
+            <div class="migracao-grid">
+              <div class="migracao-card">
+                <div class="migracao-flow">
+                  <span class="db-badge mysql">MySQL</span>
+                  <span class="arrow">→</span>
+                  <span class="db-badge mongo">MongoDB</span>
+                </div>
+                <p>Migra dados relacionais para NoSQL</p>
+                <button onclick="migrar('mysql-para-mongo')" class="btn btn-primary">🚀 Migrar</button>
+              </div>
+              <div class="migracao-card">
+                <div class="migracao-flow">
+                  <span class="db-badge sqlserver">SQL Server</span>
+                  <span class="arrow">→</span>
+                  <span class="db-badge mongo">MongoDB</span>
+                </div>
+                <p>Migra dados relacionais para NoSQL</p>
+                <button onclick="migrar('sqlserver-para-mongo')" class="btn btn-warning">🚀 Migrar</button>
+              </div>
+              <div class="migracao-card">
+                <div class="migracao-flow">
+                  <span class="db-badge mongo">MongoDB</span>
+                  <span class="arrow">→</span>
+                  <span class="db-badge mysql">MySQL</span>
+                </div>
+                <p>Migra dados NoSQL para relacional</p>
+                <button onclick="migrar('mongo-para-mysql')" class="btn btn-secondary">🚀 Migrar</button>
+              </div>
+            </div>
+            <div class="result-box mt-3">
+              <h4>Resultado:</h4>
+              <pre id="mgResult">Aguardando operação...</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
